@@ -11,7 +11,7 @@ things you might want in your regular development setup like SSL certificates.
 Installation
 ------------
 
-1. Clone project
+1. Create project from skeleton
 
     ```bash
     git clone https://github.com/dbrumann/workshop-skeleton.git
@@ -80,8 +80,7 @@ If you can not use the dockerized setup, don't worry. We will not need most
 of the services provided, only the Symfony application and a database.
 Feel free to run things locally using the following instructions:
 
- 1. Clone repository
- 1. Install dependencies using `composer install`
+ 1. Create project `composer create-project brumann/workshop-skeleton workshop`
  1. Run a PHP internal webserver: `php -S 127.0.0.1:8000 -t public/`
 
 Additionally make sure that you have a database server like MySQL or Postgres
