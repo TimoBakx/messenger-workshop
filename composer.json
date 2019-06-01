@@ -1,4 +1,7 @@
 {
+    "name": "brumann/workshop-skeleton",
+    "description": "Project skeleton for workshops.",
+    "keywords": ["symfony", "workshop", "skeleton"],
     "type": "project",
     "license": "proprietary",
     "require": {
