@@ -24,11 +24,13 @@ RUN docker-php-ext-install -j$(nproc) \
 
 RUN pecl install \
     amqp \
-    apcu
+    apcu \
+    redis
 
 RUN docker-php-ext-enable \
     amqp \
-    apcu
+    apcu \
+    redis
 
 RUN mkdir -p /var/www/app
 
