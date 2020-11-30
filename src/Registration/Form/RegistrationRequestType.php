@@ -2,7 +2,7 @@
 
 namespace App\Registration\Form;
 
-use App\Registration\Object\RegistrationRequest;
+use App\Registration\Message\RegistrationRequest;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

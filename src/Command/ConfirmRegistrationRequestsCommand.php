@@ -16,8 +16,19 @@ use const DIRECTORY_SEPARATOR;
 
 class ConfirmRegistrationRequestsCommand extends Command
 {
+    /**
+     * @var string
+     */
     private $requestStorageDir;
+
+    /**
+     * @var Registration
+     */
     private $registration;
+
+    /**
+     * @var RouterInterface
+     */
     private $router;
 
     public function __construct(string $requestStorageDir, Registration $registration, RouterInterface $router)
@@ -29,21 +40,22 @@ class ConfirmRegistrationRequestsCommand extends Command
         $this->router = $router;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('registration:confirm')
             ->setDescription('Confirm registration requests.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $io = new SymfonyStyle($input, $output);
-        $finder = (new Finder())->in($this->requestStorageDir)->files();
+        $finder = new Finder();
+        $finder->files()->in($this->requestStorageDir);
 
         $io->title('Confirm registration requests');
 
-        foreach ($finder->getIterator() as $file) {
+        foreach ($finder as $file) {
             $request = json_decode($file->getContents(), true);
 
             $io->section(sprintf('Request received: %s', $request['createdAt']['date']));
